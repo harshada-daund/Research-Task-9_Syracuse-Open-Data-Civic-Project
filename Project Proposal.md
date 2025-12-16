@@ -95,8 +95,6 @@ The final deliverables will include:
   * LLM usage and validation
   * Reproducibility instructions
 
-The project is intended as a standalone portfolio artifact demonstrating independent work with real-world civic data.
-
 ---
 
 ## Success Criteria
