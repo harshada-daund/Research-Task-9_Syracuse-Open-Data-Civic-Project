@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# virtual env
+.venv/
+venv/
+.env
+
+# keep datasets out of repo
+data/
+*.csv
+*.xlsx
+*.json
+*.parquet
+*.zip
+
+# optional: ignore generated outputs if you want
+# outputs/
