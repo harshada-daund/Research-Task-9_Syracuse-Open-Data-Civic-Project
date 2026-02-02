@@ -27,3 +27,14 @@ The repository is organized into distinct layers: `data/` for raw and processed 
 Phase 3 also introduces quality assurance practices. Key transformations are validated using assertions and consistency checks, derived metrics explicitly respect known data limitations such as missing closure dates, and plotting logic includes safeguards for empty or incomplete subsets. Exploratory visualizations developed in Phase 2 are refactored into reusable plotting functions, positioning the project for future dashboard development or automation while maintaining transparency and reproducibility.
 
 ---
+
+## Week 7–8 Enhancements
+
+During Weeks 7–8, the project was strengthened to improve reproducibility, validation, and documentation:
+
+- Added a reproducible pipeline runner (`src/run_pipeline.py`) to execute the full workflow end-to-end.
+- Implemented quality assurance checks in `src/qa.py` to validate cleaned data and catch edge cases.
+- Ensured all tables and plots are saved to the `outputs/` directory for reproducible presentation.
+- Replaced placeholder LLM validation logic with checks grounded in computed metrics.
+- Added minimal unit tests under the `tests/` directory to validate critical transformations.
+
