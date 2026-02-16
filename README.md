@@ -28,7 +28,7 @@ Phase 3 also introduces quality assurance practices. Key transformations are val
 
 ---
 
-## Week 7–8 Enhancements
+## Phase 3 - Enhancements (Week 7–8)
 
 During Weeks 7–8, the project was strengthened to improve reproducibility, validation, and documentation:
 
@@ -37,4 +37,9 @@ During Weeks 7–8, the project was strengthened to improve reproducibility, val
 - Ensured all tables and plots are saved to the `outputs/` directory for reproducible presentation.
 - Replaced placeholder LLM validation logic with checks grounded in computed metrics.
 - Added minimal unit tests under the `tests/` directory to validate critical transformations.
+
+---
+## Phase 3 – Testing & Feature Completion (Weeks 9–10)
+
+Weeks 9–10 finalized Phase 3 by hardening the Syracuse Open Data Housing Violations analysis pipeline and declaring the project feature-complete. This period focused on expanding unit and integration tests for all critical transformations (safe datetime parsing, open vs. closed case logic, resolution time calculations, and aggregation logic feeding summary tables and visualizations), adding automated validation summaries for data quality, and strengthening edge-case handling for empty datasets, missing closure dates, malformed categorical fields, and sparse neighborhood groupings. The reproducible pipeline was stabilized with clear QA checks and explicit warnings for anomalous conditions, ensuring reliable end-to-end execution from raw data ingestion through saved outputs. Documentation was brought to submission quality with an updated README, clarified architecture notes, QA documentation, and a clearly stated limitations section. By the end of Week 10, the project delivered a fully reproducible, well-tested civic data analysis pipeline that cleanly separates acquisition, cleaning, analysis, and presentation, providing a strong foundation for future enhancements such as dashboard deployment or advanced analytics.
 
