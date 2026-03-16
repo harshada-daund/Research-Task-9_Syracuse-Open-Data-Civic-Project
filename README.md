@@ -51,3 +51,9 @@ Weeks 11–12 focused on reviewing, stabilizing, and consolidating the Syracuse 
 I refined the codebase for clarity and maintainability by confirming proper separation between acquisition, transformation, analysis, validation, and presentation modules. Minor improvements were made to enhance readability and reduce redundancy. Documentation was carefully aligned with the implemented architecture to ensure consistency between described system design and actual code structure.
 
 This phase emphasized stability, reproducibility verification, and preparation for future enhancements. By the end of Week 12, the project stands as a fully reproducible, validated, and well-documented civic data analysis pipeline, ready for potential future extensions such as advanced analytics or interactive visualization.
+
+---
+
+## Phase 5 - Presentation & Showcase (Week 13-14)
+Weeks 13 & 14 of Phase 5 went by shifting the focus toward finalizing the project documentation and preparing the work for submission. I am currently organizing the final summary of the project into four sections: **The Problem** (explaining the research question and why understanding housing code violations in Syracuse matters), **The Approach** (describing the dataset and analysis pipeline in accessible terms), **The Findings** (highlighting key patterns discovered through visualizations and statistical summaries), and **Limitations and Future Work** (acknowledging what the dataset could not answer and how the project could be extended). This week, I am gathering the relevant analysis results and visual outputs to support each section, identifying which charts and summary statistics best communicate the findings for a non-technical audience, and refining the documentation to emphasize transparency, reproducibility, and responsible interpretation of the Syracuse Open Data Code Violations dataset.
+
