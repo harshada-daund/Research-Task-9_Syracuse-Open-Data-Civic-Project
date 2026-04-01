@@ -1,63 +1,118 @@
 ## Analytical Goal
-The purpose of this project is to produce a civic-facing summary of Syracuse housing code violations using public data from the Syracuse Open Data portal.
+
+The goal of this project is to produce a civic-facing, reproducible analysis of Syracuse housing code violations using publicly available data from the Syracuse Open Data portal.
+
+The project focuses on identifying patterns in violation activity, case status, and resolution performance, while clearly communicating the limitations of the dataset.
+
+---
 
 ## Data Processing Steps
-1. Read the raw CSV from `data/raw/Code_Violations.csv`
+
+The analysis follows a structured pipeline:
+
+1. Load raw dataset from:
+   `data/raw/Code_Violations.csv`
+
 2. Parse date fields:
    - `open_date`
    - `violation_date`
    - `comply_by_date`
    - `status_date`
-3. Standardize selected categorical fields:
+
+3. Standardize categorical fields:
    - `Neighborhood`
    - `status_type_name`
    - `Vacant`
-4. Derive analysis fields:
-   - `year`
-   - `is_closed`
-   - `resolution_days`
+
+4. Create derived features:
+   - `year` → extracted from `violation_date`
+   - `is_closed` → identifies closed cases
+   - `resolution_days` → time difference between `status_date` and `violation_date`
+
+---
 
 ## Exploratory Analysis
-The project computes:
-- counts by year
-- counts by neighborhood
-- counts by violation type
-- open/closed status distribution
-- average resolution time for closed cases
+
+The project computes descriptive statistics including:
+
+- violations by year  
+- violations by neighborhood  
+- top violation types  
+- open vs closed case distribution  
+- average resolution time for closed cases  
+
+These summaries form the foundation for the dashboard visualizations.
+
+---
 
 ## Additional Analysis
-The dashboard includes two operational metrics:
-- Open vs Closed case distribution
-- Average resolution time by neighborhood for closed cases
 
-Resolution time was calculated as the difference in days between `status_date` and `violation_date` for closed cases. Negative values were treated as invalid and excluded from aggregate summaries.
+The final dashboard includes two operational metrics:
+
+- **Open vs Closed Case Distribution**
+- **Average Resolution Time by Neighborhood**
+
+These metrics provide insight into system performance, not just violation frequency.
+
+---
+
+## Resolution Time Calculation
+
+Resolution time is calculated as:
+resolution_days = status_date − violation_date
+
+- Computed only for closed cases  
+- Negative values are treated as invalid and removed  
+- Missing values are excluded from analysis  
+
+---
 
 ## LLM Usage and Validation
-LLMs were used only for:
-- drafting narrative summaries
-- brainstorming hypotheses
-- improving stakeholder-oriented wording
+
+Large language models (LLMs) were used for:
+
+- drafting explanations  
+- refining documentation  
+- assisting with interpretation  
 
 Validation approach:
-- all numeric claims should be checked against the pipeline outputs
-- narrative claims are treated as suggestions, not facts
-- no claim should appear in the final report unless it can be traced back to a generated summary table or chart
+
+- all numerical outputs are generated through code  
+- LLM-generated statements are verified against computed results  
+- narratives are treated as interpretive, not factual  
+
+---
 
 ## Bias and Ethics
-This project documents housing-code activity, not intrinsic neighborhood quality. Reported patterns may reflect:
-- differences in reporting behavior
-- inspection intensity
-- data-entry practices
-- timing and case-closure procedures
+
+This analysis reflects reported housing code violations, not actual housing conditions.
+
+Observed patterns may be influenced by:
+
+- complaint-driven reporting  
+- differences in inspection practices  
+- administrative processes  
+- data entry inconsistencies  
+
+The project avoids causal claims and presents findings descriptively.
+
+---
 
 ## Limitations
-- The dataset does not include every contextual factor needed to explain violations.
-- Case status may lag behind on-the-ground conditions.
-- Missing values and category inconsistencies may affect summaries.
+
+- The dataset does not capture all housing issues  
+- Reporting bias may affect neighborhood comparisons  
+- Case status may not reflect real-time conditions  
+- Missing and inconsistent data may impact results  
+
+---
 
 ## Success Criteria
-A successful project:
-- runs end-to-end from raw CSV to dashboard
-- produces readable summary tables and figures
-- documents assumptions clearly
-- communicates limits honestly
+
+The project is considered successful if it:
+
+- runs end-to-end from raw data to dashboard  
+- produces accurate and interpretable summaries  
+- generates a functional interactive dashboard  
+- clearly communicates assumptions and limitations  
+- provides meaningful but responsible civic insights  
