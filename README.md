@@ -93,14 +93,14 @@ It includes charts for:
 ├── README.md
 ├── TECHNICAL.md
 ├── METHODOLOGY.md
+├── Project Proposal.md
+├── One-Page Poject Summary.md
 ├── docs/
 │   ├── data_dictionary.md
-│   ├── proposal.md
 │   ├── exploration_report.md
 │   ├── architecture_review.md
 │   └── demo_script.md
 ├── src/
-│   ├── **init**.py
 │   ├── data_cleaning.py
 │   ├── analysis.py
 │   ├── visualization.py
