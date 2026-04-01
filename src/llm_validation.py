@@ -1,24 +1,16 @@
-def validate_claims(df):
-    results = {}
+from __future__ import annotations
 
-    # Claim: "Recent years have more open cases"
-    if "Year" in df.columns and "Is_Open" in df.columns:
-        yearly_open = df.groupby("Year")["Is_Open"].mean().dropna()
-        if len(yearly_open) >= 2:
-            trend = yearly_open.iloc[-1] - yearly_open.iloc[0]
-            results["Recent years have more open cases"] = "Supported" if trend > 0 else "Not clearly supported"
-        else:
-            results["Recent years have more open cases"] = "Insufficient data"
+import pandas as pd
 
-    # Claim: "Some violation types take longer to resolve"
-    if "Violation_Clean" in df.columns and "Resolution_Days" in df.columns:
-        by_type = df.groupby("Violation_Clean")["Resolution_Days"].median().dropna()
-        results["Some violation types take longer to resolve"] = "Supported" if by_type.nunique() > 1 else "Not clearly supported"
 
-    # Claim: "Neighborhood variation exists"
-    if "Neighborhood_Clean" in df.columns:
-        counts = df["Neighborhood_Clean"].value_counts(dropna=True)
-        results["Neighborhood variation exists"] = "Supported" if counts.nunique() > 1 else "Not clearly supported"
+def validate_claim_contains_top_neighborhood(claim: str, top_neighborhoods_df: pd.DataFrame) -> dict:
+    if top_neighborhoods_df.empty:
+        return {"valid": False, "reason": "No neighborhood summary available."}
 
-    return results
-
+    top_name = str(top_neighborhoods_df.iloc[0]["Neighborhood"])
+    valid = top_name.lower() in claim.lower()
+    return {
+        "valid": valid,
+        "expected_top_neighborhood": top_name,
+        "reason": "Claim mentions computed top neighborhood." if valid else "Claim does not mention computed top neighborhood.",
+    }
