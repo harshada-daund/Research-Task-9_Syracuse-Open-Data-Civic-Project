@@ -50,8 +50,6 @@ This project documents housing-code activity, not intrinsic neighborhood quality
 - data-entry practices
 - timing and case-closure procedures
 
-For that reason, results are framed descriptively and carefully. The project avoids overclaiming and does not make causal or predictive statements.
-
 ## Limitations
 - The dataset does not include every contextual factor needed to explain violations.
 - Case status may lag behind on-the-ground conditions.
