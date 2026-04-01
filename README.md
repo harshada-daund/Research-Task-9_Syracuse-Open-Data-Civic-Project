@@ -1,6 +1,3 @@
-# 📄 🏆 FINAL `README.md`
-
-```markdown
 # Syracuse Housing Code Violations Dashboard
 
 ## Overview
