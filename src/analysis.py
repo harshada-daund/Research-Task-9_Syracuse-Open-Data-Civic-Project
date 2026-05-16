@@ -57,7 +57,7 @@ def avg_resolution_by_neighborhood(df: pd.DataFrame, n: int = 10) -> pd.DataFram
     )
     return out
 
- def status_by_neighborhood(df):
+def status_by_neighborhood(df):
     """
     Create a summary table showing case status counts by neighborhood.
     """
