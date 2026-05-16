@@ -12,9 +12,11 @@ from .analysis import (
     top_neighborhoods,
     status_summary,
     avg_resolution_by_neighborhood,
+    status_by_neighborhood,
 )
 from .qa import qa_report
 from .visualization import save_standard_figures
+
 
 
 def run_pipeline(input_path: str, output_dir: str, processed_dir: str) -> None:
@@ -34,6 +36,7 @@ def run_pipeline(input_path: str, output_dir: str, processed_dir: str) -> None:
     status_df = status_summary(cleaned)
     avg_resolution_df = avg_resolution_by_neighborhood(cleaned)
     qa_df = qa_report(cleaned)
+    status_neighborhood = status_by_neighborhood(clean_df)
 
     metrics_df.to_csv(os.path.join(output_dir, "tables", "summary_metrics.csv"), index=False)
     by_year_df.to_csv(os.path.join(output_dir, "tables", "violations_by_year.csv"), index=False)
@@ -42,6 +45,7 @@ def run_pipeline(input_path: str, output_dir: str, processed_dir: str) -> None:
     status_df.to_csv(os.path.join(output_dir, "tables", "status_summary.csv"), index=False)
     avg_resolution_df.to_csv(os.path.join(output_dir, "tables", "avg_resolution_by_neighborhood.csv"), index=False)
     qa_df.to_csv(os.path.join(output_dir, "tables", "qa_report.csv"), index=False)
+    status_neighborhood.to_csv(output_tables_dir / "status_by_neighborhood.csv", index=False)
 
     save_standard_figures(
         by_year_df,
