@@ -36,7 +36,7 @@ def run_pipeline(input_path: str, output_dir: str, processed_dir: str) -> None:
     status_df = status_summary(cleaned)
     avg_resolution_df = avg_resolution_by_neighborhood(cleaned)
     qa_df = qa_report(cleaned)
-    status_neighborhood = status_by_neighborhood(clean_df)
+    status_neighborhood = status_by_neighborhood(cleaned)
 
     metrics_df.to_csv(os.path.join(output_dir, "tables", "summary_metrics.csv"), index=False)
     by_year_df.to_csv(os.path.join(output_dir, "tables", "violations_by_year.csv"), index=False)
