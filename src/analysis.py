@@ -56,3 +56,22 @@ def avg_resolution_by_neighborhood(df: pd.DataFrame, n: int = 10) -> pd.DataFram
         .head(n)
     )
     return out
+
+ def status_by_neighborhood(df):
+    """
+    Create a summary table showing case status counts by neighborhood.
+    """
+    required_cols = {"Neighborhood", "status_type_name"}
+
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        raise ValueError(f"Missing required columns: {missing}")
+
+    summary = (
+        df.groupby(["Neighborhood", "status_type_name"])
+        .size()
+        .reset_index(name="case_count")
+        .sort_values(["Neighborhood", "case_count"], ascending=[True, False])
+    )
+
+    return summary
