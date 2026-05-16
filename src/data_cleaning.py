@@ -11,7 +11,7 @@ def clean_code_violations(df: pd.DataFrame) -> pd.DataFrame:
 
     for col in DATE_COLUMNS:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], errors="coerce")
+            df[col] = pd.to_datetime(df[col], errors="coerce", format="mixed")
 
     if "Neighborhood" in df.columns:
         df["Neighborhood"] = (
