@@ -45,7 +45,7 @@ def run_pipeline(input_path: str, output_dir: str, processed_dir: str) -> None:
     status_df.to_csv(os.path.join(output_dir, "tables", "status_summary.csv"), index=False)
     avg_resolution_df.to_csv(os.path.join(output_dir, "tables", "avg_resolution_by_neighborhood.csv"), index=False)
     qa_df.to_csv(os.path.join(output_dir, "tables", "qa_report.csv"), index=False)
-    status_neighborhood.to_csv(output_tables_dir / "status_by_neighborhood.csv", index=False)
+    status_neighborhood.to_csv(os.path.join(output_dir, "tables", "status_by_neighborhood.csv"), index=False)
 
     save_standard_figures(
         by_year_df,
